@@ -10,6 +10,9 @@
     "js"
   ],
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "license": "MIT",
   "scripts": {
     "format": "prettier-standard --format",
