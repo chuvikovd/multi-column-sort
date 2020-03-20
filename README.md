@@ -2,6 +2,10 @@
 
 Tiny, zero-dependency multi column sorting helper.
 
+![CircleCI](https://img.shields.io/circleci/build/github/chuvikovd/multi-column-sort)
+![GitHub file size in bytes](https://img.shields.io/github/size/chuvikovd/multi-column-sort/index.js)
+![GitHub](https://img.shields.io/github/license/chuvikovd/multi-column-sort)
+
 ## Installation
 
 With [npm](https://www.npmjs.com):
