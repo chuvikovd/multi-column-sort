@@ -64,3 +64,8 @@ multiColumnSort(array, sortArray, getColumnValue)
 - `array` **array** Array of objects to be sorted.
 - `sortArray` **array** Array of strings defining columns to be sorted by, order and direction e.g. `['name-asc', 'city-desc']`.
 - `getColumnValue` **function** Optional, by default all values are cast to string. Takes `column` and `value` arguments, must return value for comparison.
+
+---
+
+MIT License
+Copyright (C) Dmitrijs Čuvikovs [chuvikovd@gmail.com](mailto:chuvikovd@gmail.com).
