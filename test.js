@@ -6,19 +6,24 @@ import firstNameASCBalanceDESCSorted from './data/firstNameASCBalanceDESCSorted.
 import firstNameDESCBalanceASCSorted from './data/firstNameDESCBalanceASCSorted.json'
 
 describe('multiColumnSort', () => {
+  const mapValues = arr => arr.map(({ firstName }) => ({ firstName }))
+
   it('sorts by one column ASC', () => {
-    expect(multiColumnSort(unsorted, ['firstName-asc'])).toEqual(
-      firstNameASCSorted
+    expect(mapValues(multiColumnSort(unsorted, ['firstName-asc']))).toEqual(
+      mapValues(firstNameASCSorted)
     )
   })
 
   it('sorts by one column DESC', () => {
-    expect(multiColumnSort(unsorted, ['firstName-desc'])).toEqual(
-      firstNameDESCSorted
+    expect(mapValues(multiColumnSort(unsorted, ['firstName-desc']))).toEqual(
+      mapValues(firstNameDESCSorted)
     )
   })
 
   describe('with getColumnValue', () => {
+    const mapValues = arr =>
+      arr.map(({ firstName, balance }) => ({ firstName, balance }))
+
     const getColumnValue = (column, value) => {
       switch (column) {
         case 'balance':
@@ -30,20 +35,24 @@ describe('multiColumnSort', () => {
 
     it('sorts by multiple columns', () => {
       expect(
-        multiColumnSort(
-          unsorted,
-          ['firstName-desc', 'balance-asc'],
-          getColumnValue
+        mapValues(
+          multiColumnSort(
+            unsorted,
+            ['firstName-desc', 'balance-asc'],
+            getColumnValue
+          )
         )
-      ).toEqual(firstNameDESCBalanceASCSorted)
+      ).toEqual(mapValues(firstNameDESCBalanceASCSorted))
 
       expect(
-        multiColumnSort(
-          unsorted,
-          ['firstName-asc', 'balance-desc'],
-          getColumnValue
+        mapValues(
+          multiColumnSort(
+            unsorted,
+            ['firstName-asc', 'balance-desc'],
+            getColumnValue
+          )
         )
-      ).toEqual(firstNameASCBalanceDESCSorted)
+      ).toEqual(mapValues(firstNameASCBalanceDESCSorted))
     })
   })
 })
