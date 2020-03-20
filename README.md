@@ -1,4 +1,4 @@
-# m-sort
+# multi-column-sort
 
 Tiny, zero-dependency multi column sorting helper.
 
