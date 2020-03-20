@@ -17,5 +17,7 @@ const sort = (a, b, columns, getColumnValue) => {
   }
 }
 
-export default (arr, sortArr, getColumnValue) =>
+const multiColumnSort = (arr, sortArr, getColumnValue) =>
   [...arr].sort((a, b) => sort(a, b, sortArr, getColumnValue))
+
+module.exports = multiColumnSort
