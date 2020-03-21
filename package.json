@@ -6,8 +6,9 @@
   "repository": "https://github.com/chuvikovd/multi-column-sort",
   "homepage": "https://github.com/chuvikovd/multi-column-sort",
   "keywords": [
-    "multi columnsorting",
-    "js"
+    "multi-column-sorting",
+    "sorting",
+    "util"
   ],
   "main": "index.js",
   "files": [
