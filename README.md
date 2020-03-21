@@ -2,10 +2,10 @@
 
 Tiny, zero-dependency multi column sorting helper.
 
-![npm](https://img.shields.io/npm/v/multi-column-sort?style=flat-square)
-![CircleCI](https://img.shields.io/circleci/build/github/chuvikovd/multi-column-sort?style=flat-square)
-![GitHub file size in bytes](https://img.shields.io/github/size/chuvikovd/multi-column-sort/index.js?style=flat-square)
-![GitHub](https://img.shields.io/github/license/chuvikovd/multi-column-sort?style=flat-square)
+[![npm](https://img.shields.io/npm/v/multi-column-sort?style=flat-square)](https://www.npmjs.com/package/multi-column-sort)
+[![CircleCI](https://img.shields.io/circleci/build/github/chuvikovd/multi-column-sort?style=flat-square)](https://circleci.com/gh/chuvikovd/multi-column-sort)
+[![GitHub file size in bytes](https://img.shields.io/github/size/chuvikovd/multi-column-sort/index.js?style=flat-square)](https://github.com/chuvikovd/multi-column-sort/blob/master/index.js)
+[![GitHub](https://img.shields.io/github/license/chuvikovd/multi-column-sort?style=flat-square)](https://github.com/chuvikovd/multi-column-sort/blob/master/LICENSE)
 
 ## Installation
 
