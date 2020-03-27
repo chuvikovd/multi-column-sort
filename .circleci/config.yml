@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
+  codecov: codecov/codecov@1.0.2
 jobs:
   test-and-build:
     executor:
@@ -10,8 +11,10 @@ jobs:
       - node/with-cache:
           steps:
             - run: yarn
-            - run: yarn test
+            - run: yarn test --coverage
             - run: yarn build
+      - codecov/upload:
+          file: ./coverage/lcov.info
 workflows:
   test-and-build:
     jobs:

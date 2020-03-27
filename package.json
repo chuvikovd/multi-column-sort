@@ -19,7 +19,7 @@
     "format": "prettier-standard --format",
     "lint": "prettier-standard --lint",
     "test": "jest",
-    "prepublish": "yarn rimraf dist && yarn test && yarn build"
+    "prepublishOnly": "yarn rimraf dist && yarn test && yarn build"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
