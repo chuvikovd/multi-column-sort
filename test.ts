@@ -1,30 +1,36 @@
-import multiColumnSort from './index.js'
+import multiColumnSort from './index'
 import unsorted from './data/unsorted.json'
 import firstNameASCSorted from './data/firstNameASCSorted.json'
 import firstNameDESCSorted from './data/firstNameDESCSorted.json'
 import firstNameASCBalanceDESCSorted from './data/firstNameASCBalanceDESCSorted.json'
 import firstNameDESCBalanceASCSorted from './data/firstNameDESCBalanceASCSorted.json'
 
+interface Data {
+  firstName: string
+  lastName: string
+  balance: string
+}
+
 describe('multiColumnSort', () => {
-  const mapValues = arr => arr.map(({ firstName }) => ({ firstName }))
+  const mapValues = (arr: Data[]) => arr.map(({ firstName }) => ({ firstName }))
 
   it('sorts by one column ASC', () => {
-    expect(mapValues(multiColumnSort(unsorted, ['firstName-asc']))).toEqual(
-      mapValues(firstNameASCSorted)
-    )
+    expect(
+      mapValues(multiColumnSort(unsorted, [['firstName', 'ASC']]))
+    ).toEqual(mapValues(firstNameASCSorted))
   })
 
   it('sorts by one column DESC', () => {
-    expect(mapValues(multiColumnSort(unsorted, ['firstName-desc']))).toEqual(
-      mapValues(firstNameDESCSorted)
-    )
+    expect(
+      mapValues(multiColumnSort(unsorted, [['firstName', 'DESC']]))
+    ).toEqual(mapValues(firstNameDESCSorted))
   })
 
   describe('with getColumnValue', () => {
-    const mapValues = arr =>
+    const mapValues = (arr: Data[]) =>
       arr.map(({ firstName, balance }) => ({ firstName, balance }))
 
-    const getColumnValue = (column, value) => {
+    const getColumnValue = (column: keyof Data, value: Data[keyof Data]) => {
       switch (column) {
         case 'balance':
           return parseFloat(value.replace(/\,|\$/g, ''))
@@ -38,7 +44,10 @@ describe('multiColumnSort', () => {
         mapValues(
           multiColumnSort(
             unsorted,
-            ['firstName-desc', 'balance-asc'],
+            [
+              ['firstName', 'DESC'],
+              ['balance', 'ASC']
+            ],
             getColumnValue
           )
         )
@@ -48,7 +57,10 @@ describe('multiColumnSort', () => {
         mapValues(
           multiColumnSort(
             unsorted,
-            ['firstName-asc', 'balance-desc'],
+            [
+              ['firstName', 'ASC'],
+              ['balance', 'DESC']
+            ],
             getColumnValue
           )
         )
