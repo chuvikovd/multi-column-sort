@@ -1,5 +1,5 @@
-type SortArray<T> = [keyof T, 'ASC' | 'DESC'][]
-type GetColumnValue<T> = (column: keyof T, value: T[keyof T]) => any
+export type SortArray<T> = [keyof T, 'ASC' | 'DESC'][]
+export type GetColumnValue<T> = (column: keyof T, value: T[keyof T]) => any
 
 const sort = <T>(
   a: T,
