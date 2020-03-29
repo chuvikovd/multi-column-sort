@@ -1,15 +1,21 @@
 import multiColumnSort from './index'
-import unsorted from './data/unsorted.json'
-import firstNameASCSorted from './data/firstNameASCSorted.json'
-import firstNameDESCSorted from './data/firstNameDESCSorted.json'
-import firstNameASCBalanceDESCSorted from './data/firstNameASCBalanceDESCSorted.json'
-import firstNameDESCBalanceASCSorted from './data/firstNameDESCBalanceASCSorted.json'
+import unsortedRaw from './data/unsorted.json'
+import firstNameASCSortedRaw from './data/firstNameASCSorted.json'
+import firstNameDESCSortedRaw from './data/firstNameDESCSorted.json'
+import firstNameASCBalanceDESCSortedRaw from './data/firstNameASCBalanceDESCSorted.json'
+import firstNameDESCBalanceASCSortedRaw from './data/firstNameDESCBalanceASCSorted.json'
 
 interface Data {
   firstName: string
   lastName: string
   balance: string
 }
+
+const unsorted: Data[] = unsortedRaw
+const firstNameASCSorted: Data[] = firstNameASCSortedRaw
+const firstNameDESCSorted: Data[] = firstNameDESCSortedRaw
+const firstNameASCBalanceDESCSorted: Data[] = firstNameASCBalanceDESCSortedRaw
+const firstNameDESCBalanceASCSorted: Data[] = firstNameDESCBalanceASCSortedRaw
 
 describe('multiColumnSort', () => {
   const mapValues = (arr: Data[]) => arr.map(({ firstName }) => ({ firstName }))
@@ -24,6 +30,12 @@ describe('multiColumnSort', () => {
     expect(
       mapValues(multiColumnSort(unsorted, [['firstName', 'DESC']]))
     ).toEqual(mapValues(firstNameDESCSorted))
+  })
+
+  test('object signature', () => {
+    expect(mapValues(multiColumnSort(unsorted, { firstName: 'ASC' }))).toEqual(
+      mapValues(firstNameASCSorted)
+    )
   })
 
   describe('with getColumnValue', () => {
@@ -65,6 +77,18 @@ describe('multiColumnSort', () => {
           )
         )
       ).toEqual(mapValues(firstNameASCBalanceDESCSorted))
+    })
+
+    test('object signature', () => {
+      expect(
+        mapValues(
+          multiColumnSort(
+            unsorted,
+            { firstName: 'DESC', balance: 'ASC' },
+            getColumnValue
+          )
+        )
+      ).toEqual(mapValues(firstNameDESCBalanceASCSorted))
     })
   })
 })

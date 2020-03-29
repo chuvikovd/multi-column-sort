@@ -1,4 +1,6 @@
-export type SortArray<T> = [keyof T, 'ASC' | 'DESC'][]
+export type Direction = 'ASC' | 'DESC'
+export type SortArray<T> = [keyof T, Direction][]
+export type SortObject<T> = { [key in keyof T]?: Direction }
 export type GetColumnValue<T> = (column: keyof T, value: T[keyof T]) => any
 
 const sort = <T>(
@@ -25,10 +27,27 @@ const sort = <T>(
   }
 }
 
+const sortObjectToArray = <T>(object: SortObject<T>): SortArray<T> =>
+  Object.keys(object).reduce(
+    (arr, column) =>
+      [...arr, [column, object[column as keyof T]]] as SortArray<T>,
+    [] as SortArray<T>
+  )
+
 const multiColumnSort = <T>(
   arr: T[],
-  sortArr: [keyof T, 'ASC' | 'DESC'][],
+  sortArrOrObject: SortArray<T> | SortObject<T>,
   getColumnValue?: GetColumnValue<T>
-): T[] => [...arr].sort((a, b) => sort(a, b, sortArr, getColumnValue))
+): T[] =>
+  [...arr].sort((a, b) =>
+    sort(
+      a,
+      b,
+      Array.isArray(sortArrOrObject)
+        ? sortArrOrObject
+        : sortObjectToArray(sortArrOrObject),
+      getColumnValue
+    )
+  )
 
 export default multiColumnSort

@@ -45,7 +45,21 @@ const getColumnValue = (column, value) => {
 
 const sorted = multiColumnSort(
   data,
-  [['firstName', 'ASC'], ['balance', 'DESC']],
+  [
+    ['firstName', 'ASC'],
+    ['balance', 'DESC']
+  ],
+  getColumnValue
+)
+
+/* Or: */
+
+const sorted = multiColumnSort(
+  data,
+  {
+    firstName: 'ASC',
+    balance: 'DESC'
+  },
   getColumnValue
 )
 
@@ -61,11 +75,11 @@ const sorted = multiColumnSort(
 ## API
 
 ```javascript
-multiColumnSort(array, sortArray, getColumnValue)
+multiColumnSort(array, sortArrayOrObject, getColumnValue)
 ```
 
 **Parameters**
 
 - `array` **array** Array of objects to be sorted.
-- `sortArray` **array** Array of tuples defining columns to be sorted by, order and direction e.g. `[['name', 'ASC'], ['city', 'DESC']]`.
+- `sortArrayOrObject` **array** or **object** Array of tuples or object defining columns to be sorted by, order and direction e.g. `[['name', 'ASC'], ['city', 'DESC']]` or `{ name: 'ASC', city: 'DESC' }`.
 - `getColumnValue` **function** Optional, by default all values are cast to string. Takes `column` and `value` arguments, must return value for comparison.
