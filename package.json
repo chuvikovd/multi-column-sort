@@ -1,6 +1,6 @@
 {
   "name": "multi-column-sort",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Tiny multi column sorting JS helper",
   "author": "Dmitrijs Čuvikovs <chuvikovd@gmail.com> (https://chuva.dev)",
   "repository": "https://github.com/chuvikovd/multi-column-sort",
