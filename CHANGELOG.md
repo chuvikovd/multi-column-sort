@@ -1,3 +1,7 @@
+## 2.2.0 (March 29, 2020)
+
+- Added alternative sorting order signature - `{ column: direction }`
+
 ## 2.1.1 (March 29, 2020)
 
 - Fixed missing changelog
