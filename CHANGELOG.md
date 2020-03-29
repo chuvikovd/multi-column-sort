@@ -1,3 +1,11 @@
+## 2.1.1 (March 29, 2020)
+
+* Fixed missing changelog
+
+## 2.1.0 (March 28, 2020)
+
+* Types exported
+
 ## 2.0.0 (March 27, 2020)
 
 * Rewritten with typescript
