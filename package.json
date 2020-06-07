@@ -24,12 +24,12 @@
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "husky": "^4.2.3",
-    "jest": "^25.1.0",
+    "jest": "^26.0.1",
     "prettier-config-standard": "^1.0.1",
     "prettier-standard": "^16.2.1",
     "rimraf": "^3.0.2",
     "standard": "^14.3.3",
-    "ts-jest": "^25.2.1",
+    "ts-jest": "^26.1.0",
     "typescript": "^3.8.3"
   },
   "resolutions": {
