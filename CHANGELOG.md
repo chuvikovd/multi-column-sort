@@ -1,3 +1,7 @@
+## 2.2.1 (June 7, 2020)
+
+- Dependency upgrade
+
 ## 2.2.0 (March 29, 2020)
 
 - Added alternative sorting order signature - `{ column: direction }`
