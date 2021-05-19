@@ -1,7 +1,7 @@
 export type Direction = 'ASC' | 'DESC'
 export type SortArray<T> = [keyof T, Direction][]
 export type SortObject<T> = { [key in keyof T]?: Direction }
-export type GetColumnValue<T> = (column: keyof T, value: T[keyof T]) => any
+export type GetColumnValue<T> = (column: keyof T, value: T[keyof T], row: T) => any
 
 const sort = <T>(
   a: T,
@@ -11,8 +11,8 @@ const sort = <T>(
 ): -1 | 0 | 1 => {
   const [item, ...others] = columns
   const [column, orderBy] = item
-  const valueA = getColumnValue ? getColumnValue(column, a[column]) : a[column]
-  const valueB = getColumnValue ? getColumnValue(column, b[column]) : b[column]
+  const valueA = getColumnValue ? getColumnValue(column, a[column], a) : a[column]
+  const valueB = getColumnValue ? getColumnValue(column, b[column], b) : b[column]
 
   if (orderBy === 'ASC') {
     if (valueA > valueB) return 1
