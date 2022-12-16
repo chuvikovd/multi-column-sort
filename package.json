@@ -1,6 +1,6 @@
 {
   "name": "multi-column-sort",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Tiny multi column sorting JS helper",
   "author": "Dmitrijs Čuvikovs <chuvikovd@gmail.com> (https://chuva.dev)",
   "repository": "https://github.com/chuvikovd/multi-column-sort",
@@ -14,16 +14,20 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
+  "publishConfig": {
+    "@mwillisFC:registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsc",
     "format": "prettier-standard --format",
     "lint": "prettier-standard --lint",
     "test": "jest",
-    "prepublishOnly": "yarn rimraf dist && yarn test && yarn build"
+    "prepublishOnly": "yarn rimraf dist && yarn test && yarn build",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
-    "husky": "^4.2.3",
+    "husky": "^7.0.0",
     "jest": "^26.0.1",
     "prettier-config-standard": "^1.0.1",
     "prettier-standard": "^16.2.1",
